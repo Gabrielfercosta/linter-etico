@@ -1,0 +1,8 @@
+openapi: 3.0.3
+info: {title: Catálogo de planos, version: 1.0.0}
+paths:
+  /planos:
+    post:
+      summary: Cadastrar um plano no catálogo (uso administrativo, sem cobrança de cliente)
+      responses:
+        '201': {description: criado}

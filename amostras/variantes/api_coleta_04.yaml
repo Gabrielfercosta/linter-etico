@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info: {title: Signup EN, version: 1.0.0}
+paths:
+  /signup:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, social_security_number, location]
+              properties: {}
+      responses:
+        '200': {description: ok}

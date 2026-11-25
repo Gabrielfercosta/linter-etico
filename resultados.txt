@@ -1,0 +1,28 @@
+Arquivos analisados: 34 | repetições por arquivo: 3 | tempo médio por arquivo: 3.48 s
+                             arqs  VP  FP  FN   prec    rev     F1  tempo(s)
+real                            3   0   0   0   0.00   0.00   0.00  9.16
+sintetica                       8   4   0   0   1.00   1.00   1.00  2.90
+variantes                      23   6   4   6   0.60   0.50   0.55  2.94
+total                          34  10   4   6   0.71   0.62   0.67  3.48
+
+Por classe de risco (todos os conjuntos):
+coleta_excessiva                    2   1   2   0.67   0.50   0.57
+notificacao_manipulativa            4   1   1   0.80   0.80   0.80
+obstrucao_cancelamento              1   1   2   0.50   0.33   0.40
+sem_recusa                          3   1   1   0.75   0.75   0.75
+
+Falsos positivos (alerta sem defeito no gabarito):
+   ('amostras/variantes/api_cancel_06.yaml', 'obstrucao_cancelamento')
+   ('amostras/variantes/api_coleta_06.yaml', 'coleta_excessiva')
+   ('amostras/variantes/config_notif_04.yaml', 'notificacao_manipulativa')
+   ('amostras/variantes/config_recusa_04.yaml', 'sem_recusa')
+Falsos negativos (defeito no gabarito sem alerta):
+   ('amostras/variantes/api_cancel_04.yaml', 'obstrucao_cancelamento')
+   ('amostras/variantes/api_cancel_05.yaml', 'obstrucao_cancelamento')
+   ('amostras/variantes/api_coleta_04.yaml', 'coleta_excessiva')
+   ('amostras/variantes/api_coleta_08.yaml', 'coleta_excessiva')
+   ('amostras/variantes/config_notif_06.yaml', 'notificacao_manipulativa')
+   ('amostras/variantes/config_recusa_05.yaml', 'sem_recusa')
+
+Alertas não éticos (ignorados, ex.: invalid-ref):
+   amostras/real/spotify_openapi.yaml: 1

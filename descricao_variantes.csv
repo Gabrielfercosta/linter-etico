@@ -1,0 +1,24 @@
+arquivo,classe_esperada,descricao
+amostras/variantes/api_cancel_02.yaml,nenhuma,Cria assinatura e cancela por DELETE.
+amostras/variantes/api_cancel_03.yaml,nenhuma,Cria assinatura e cancela em rota própria de cancelamento.
+amostras/variantes/api_cancel_04.yaml,obstrucao_cancelamento,Cria membership e não define cancelamento; nome do recurso em inglês.
+amostras/variantes/api_cancel_05.yaml,obstrucao_cancelamento,A única rota de cancelamento é de pedidos; a assinatura não tem como ser cancelada.
+amostras/variantes/api_cancel_06.yaml,nenhuma,"Cria plano de catálogo, não assinatura de cliente: não há o que cancelar."
+amostras/variantes/api_coleta_02.yaml,nenhuma,Só nome e e-mail obrigatórios: nada excessivo.
+amostras/variantes/api_coleta_03.yaml,coleta_excessiva,CPF obrigatório em atualização de perfil sem finalidade que o exija.
+amostras/variantes/api_coleta_04.yaml,coleta_excessiva,"Número de documento e localização obrigatórios, em campos com nomes em inglês."
+amostras/variantes/api_coleta_05.yaml,nenhuma,"CPF existe, mas é opcional (fora de required)."
+amostras/variantes/api_coleta_06.yaml,nenhuma,"CPF obrigatório, mas exigido pela finalidade (nota fiscal): coleta justificada."
+amostras/variantes/api_coleta_08.yaml,coleta_excessiva,"Localização e biometria obrigatórias para um cadastro simples, com nomes acentuados ou compostos."
+amostras/variantes/config_notif_02.yaml,nenhuma,Duas notificações por dia e texto neutro.
+amostras/variantes/config_notif_03.yaml,notificacao_manipulativa,"Oito notificações por dia, chave em português."
+amostras/variantes/config_notif_04.yaml,nenhuma,"Texto promocional comum, sem urgência artificial ('Concorra' não é pressão)."
+amostras/variantes/config_notif_05.yaml,notificacao_manipulativa,Escassez artificial no texto da notificação.
+amostras/variantes/config_notif_06.yaml,notificacao_manipulativa,"Doze pushes por dia e urgência artificial, em inglês e com chaves que a regra não cobre."
+amostras/variantes/config_notif_07.yaml,nenhuma,"Três por dia: no limite da regra (máximo 3), sem excesso."
+amostras/variantes/config_notif_08.yaml,notificacao_manipulativa,Quatro por dia: logo acima do limite da regra.
+amostras/variantes/config_recusa_02.yaml,nenhuma,Marketing e rastreamento desativados por padrão.
+amostras/variantes/config_recusa_03.yaml,sem_recusa,Newsletter vem marcada por padrão (default: true).
+amostras/variantes/config_recusa_04.yaml,nenhuma,'consent_required: true' significa que o app deve pedir consentimento (comportamento correto); marketing desativado.
+amostras/variantes/config_recusa_05.yaml,sem_recusa,"Coleta de uso ativada e usuário sem como desativar, em chaves que não citam 'consent' nem 'tracking'."
+amostras/variantes/config_recusa_06.yaml,sem_recusa,Opt-in de marketing já ativado por padrão.

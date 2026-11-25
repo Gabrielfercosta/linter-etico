@@ -1,0 +1,14 @@
+openapi: 3.0.3
+info: {title: Preferências, version: 1.0.0}
+paths:
+  /preferencias:
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                newsletter: {type: boolean, default: true}
+      responses:
+        '200': {description: ok}

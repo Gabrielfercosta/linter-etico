@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info: {title: Emissão de nota fiscal, version: 1.0.0}
+paths:
+  /notas-fiscais:
+    post:
+      summary: Emite nota fiscal. O CPF do tomador é exigido pela legislação tributária para este documento.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [valor, cpf]
+              properties:
+                valor: {type: number}
+                cpf: {type: string}
+      responses:
+        '201': {description: emitida}

@@ -1,0 +1,4 @@
+notifications:
+  push_per_day: 1
+  template:
+    message: "Restam apenas 2 unidades! Compre agora."

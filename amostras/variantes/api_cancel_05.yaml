@@ -1,0 +1,13 @@
+openapi: 3.0.3
+info: {title: Assinaturas e pedidos, version: 1.0.0}
+paths:
+  /assinaturas:
+    post:
+      summary: Criar assinatura
+      responses:
+        '201': {description: criada}
+  /pedidos/{id}/cancelar:
+    post:
+      summary: Cancelar pedido
+      responses:
+        '200': {description: cancelado}

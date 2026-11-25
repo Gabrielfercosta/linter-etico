@@ -1,0 +1,4 @@
+notifications:
+  push_per_day: 2
+  template:
+    message: "Seu pedido saiu para entrega."

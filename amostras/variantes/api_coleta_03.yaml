@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info: {title: Perfil, version: 1.0.0}
+paths:
+  /perfil:
+    put:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nome, cpf]
+              properties: {}
+      responses:
+        '200': {description: ok}

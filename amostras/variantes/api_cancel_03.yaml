@@ -1,0 +1,13 @@
+openapi: 3.0.3
+info: {title: Assinaturas, version: 1.0.0}
+paths:
+  /assinaturas:
+    post:
+      summary: Criar assinatura
+      responses:
+        '201': {description: criada}
+  /assinaturas/{id}/cancelar:
+    post:
+      summary: Cancelar assinatura
+      responses:
+        '200': {description: cancelada}

@@ -28,10 +28,13 @@ jobs:
           python-version: "3.12"
 
       - name: Avaliar contra o gabarito
-        run: python avaliar.py | tee resultado.txt
+        run: python avaliar.py
 
-      - name: Guardar o resultado
+      - name: Guardar os resultados
         uses: actions/upload-artifact@v4
         with:
-          name: resultado-avaliacao
-          path: resultado.txt
+          name: resultados-avaliacao
+          path: |
+            resultados.txt
+            resultados_por_arquivo.csv
+            metricas.csv

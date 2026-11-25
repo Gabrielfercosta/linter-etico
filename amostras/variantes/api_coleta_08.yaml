@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info: {title: Cadastro com acento, version: 1.0.0}
+paths:
+  /cadastro:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nome, localização, biometria_facial]
+              properties:
+                nome: {type: string}
+                localização: {type: string}
+                biometria_facial: {type: string}
+      responses:
+        '201': {description: criado}

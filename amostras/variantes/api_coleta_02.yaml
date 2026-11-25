@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info: {title: Newsletter, version: 1.0.0}
+paths:
+  /contato:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nome, email]
+              properties: {}
+      responses:
+        '200': {description: ok}
