@@ -1,0 +1,5 @@
+arquivo,classe
+amostras/sintetica/api_coleta_01.yaml,coleta_excessiva
+amostras/sintetica/api_cancel_01.yaml,obstrucao_cancelamento
+amostras/sintetica/config_recusa_01.yaml,sem_recusa
+amostras/sintetica/config_notif_01.yaml,notificacao_manipulativa

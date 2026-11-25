@@ -1,0 +1,20 @@
+openapi: 3.0.3
+info: {title: Cadastro de clientes, version: 1.0.0}
+paths:
+  /cadastro:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nome, email, cpf, localizacao, contatos]
+              properties:
+                nome: {type: string}
+                email: {type: string}
+                cpf: {type: string}
+                localizacao: {type: string}
+                contatos: {type: array, items: {type: string}}
+      responses:
+        '201': {description: criado}

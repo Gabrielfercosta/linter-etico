@@ -1,0 +1,37 @@
+name: Línter ético
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  linter-etico:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependências
+        run: npm ci
+
+      # Roda o línter em todos os arquivos da amostra e mostra os alertas no commit.
+      # continue-on-error porque a amostra tem defeitos de propósito.
+      - name: Rodar o línter ético
+        run: npx spectral lint "amostras/**/*.{yaml,yml,json}" -r .spectral.yaml -F warn -f github-actions
+        continue-on-error: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Avaliar contra o gabarito
+        run: python avaliar.py | tee resultado.txt
+
+      - name: Guardar o resultado
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultado-avaliacao
+          path: resultado.txt

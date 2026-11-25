@@ -1,0 +1,8 @@
+openapi: 3.0.3
+info: {title: Assinaturas, version: 1.0.0}
+paths:
+  /assinaturas:
+    post:
+      summary: Criar assinatura
+      responses:
+        '201': {description: criada}

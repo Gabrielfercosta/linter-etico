@@ -1,0 +1,4 @@
+notifications:
+  push_per_day: 1
+  template:
+    message: "Seu pedido foi enviado."

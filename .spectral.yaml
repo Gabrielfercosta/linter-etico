@@ -1,0 +1,58 @@
+functions:
+  - cancelamento
+functionsDir: ./regras
+
+rules:
+  etico-coleta-excessiva:
+    description: Dado pessoal sensível obrigatório no corpo da requisição (princípio da necessidade, LGPD art. 6º, III).
+    message: "Campo '{{value}}' é obrigatório, mas pode não ser necessário à finalidade (coleta excessiva)."
+    severity: error
+    given: $.paths[*][post,put,patch].requestBody.content[*].schema.required[*]
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/^(cpf|rg|localizacao|geolocalizacao|latitude|longitude|contatos|biometria|data_nascimento)$/i"
+
+  etico-sem-recusa:
+    description: Consentimento ou rastreamento já ativado por padrão, sem escolha do usuário (LGPD art. 8º).
+    message: "'{{property}}' vem ativado por padrão: o usuário não tem opção real de recusa."
+    severity: error
+    given:
+      - $..properties[?(/(consent|aceite|opt_?in|marketing|newsletter|tracking)/i.test(@property))].default
+      - $..[?(/(consent|opt_?in|marketing|newsletter|tracking)/i.test(@property))]
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          not:
+            const: true
+
+  etico-notificacao-manipulativa:
+    description: Frequência excessiva de notificações ou linguagem de urgência artificial.
+    message: "Possível notificação manipulativa em '{{path}}'."
+    severity: warn
+    given:
+      - $..[?(/(notif|push).*(freq|dia|day)/i.test(@property))]
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          maximum: 3
+
+  etico-urgencia-artificial:
+    description: Texto de notificação com urgência artificial.
+    message: "Texto com urgência artificial: '{{value}}'."
+    severity: warn
+    given:
+      - $..[message,mensagem,text,texto,template]
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/(última chance|só hoje|restam apenas|corra|não perca)/i"
+
+  etico-cancelamento-obstruido:
+    description: Serviço por assinatura sem forma de cancelamento no contrato (LGPD art. 8º, §5º).
+    severity: error
+    given: $.paths
+    then:
+      function: cancelamento

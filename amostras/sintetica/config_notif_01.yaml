@@ -1,0 +1,4 @@
+notifications:
+  push_per_day: 10
+  template:
+    message: "Última chance! Só hoje: não perca."
